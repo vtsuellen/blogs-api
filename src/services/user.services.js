@@ -18,6 +18,14 @@ const userServices = async (displayName, email, password, image) => {
   return { type: statusCode.CREATED, message: token };
 };
 
+const allUsersServices = async () => {
+  const response = await User.findAll({
+    attributes: { exclude: ['password'] },
+  });
+  return { type: statusCode.OK, message: response };
+};
+
 module.exports = {
   userServices,
+  allUsersServices,
 };

@@ -1,18 +1,12 @@
 const jwt = require('jsonwebtoken');
 
-const { JWT_SECRET } = process.env;
+const test = process.env.JWT_SECRET || 'suaSenhaSecreta';
 
 const generateTokenUtils = (payload) => {
-  const token = jwt.sign({ payload }, JWT_SECRET);
+  const token = jwt.sign({ payload }, test);
   return token;
-};
-
-const verifyTokenUtils = async (token) => {
-  const payload = jwt.verify(token, JWT_SECRET);
-  return payload;
 };
 
 module.exports = {
   generateTokenUtils,
-  verifyTokenUtils,
 };
