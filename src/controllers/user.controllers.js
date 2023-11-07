@@ -16,7 +16,15 @@ const allUserController = async (req, res) => {
   return res.status(type).json(message);
 };
 
+const userByIdController = async (req, res) => {
+  const { id } = req.params;
+  const { status, message } = await userServices.userByIdServices(id);
+
+  return res.status(status).json(message);
+};
+
 module.exports = {
   userController,
   allUserController,
+  userByIdController,
 };
