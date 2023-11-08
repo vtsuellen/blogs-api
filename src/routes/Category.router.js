@@ -14,4 +14,6 @@ categoryRouter.post(
   categoryController.categoryController,
 );
 
+categoryRouter.get('/categories', allUserMiddlewares, categoryController.allCategoriesController);
+
 module.exports = categoryRouter;

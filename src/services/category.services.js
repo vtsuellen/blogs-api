@@ -7,6 +7,13 @@ const CategoryService = async ({ name }) => {
   return { type: statusCode.CREATED, message: categories };
 };
 
+const allCategoriesService = async () => {
+  const categories = await Category.findAll();
+
+  return { type: statusCode.OK, message: categories };
+};
+
 module.exports = {
   CategoryService,
+  allCategoriesService,
 };
